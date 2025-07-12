@@ -20,6 +20,7 @@ import Message from "../../components/Message";
 import HeartIcon from "./HeartIcon";
 import Rating from "./Rating";
 import ProductTabs from "./ProductTabs";
+import { addToCart } from "../../redux/features/cart/cartSlice";
 
 const ProductDetails = () => {
   const { id: productId } = useParams();
@@ -56,6 +57,11 @@ const ProductDetails = () => {
     } catch (error) {
       toast.error(error?.data || error.message);
     }
+  };
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, qty }));
+    navigate("/cart");
   };
 
   return (
@@ -152,7 +158,7 @@ const ProductDetails = () => {
 
               <div className="btn-container">
                 <button
-                  // onClick={addToCartHandler}
+                  onClick={addToCartHandler}
                   disabled={product.countInStock === 0}
                   className="bg-pink-600 text-white py-2 px-4 rounded-lg mt-4 md:mt-0"
                 >

@@ -31,6 +31,6 @@ router
   .put(authenticate, authorizeAdmin, formidable(), updateProductDetails)
   .delete(authenticate, authorizeAdmin, removeProduct)
   .get(fetchProductById);
-router.route("/filtered-products").get(fetchFilteredPoducts);
+router.route("/filtered-products").post(fetchFilteredPoducts);
 
 export default router;
