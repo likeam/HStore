@@ -7,16 +7,16 @@ function calcPrices(orderItems) {
     0
   );
 
-  const shippingPrice = itemsPrice > 2000 ? 0 : 200;
+  const shippingPrice = 0;
   const taxRate = 0;
-  const taxPrice = (itemsPrice * taxRate).toFixed(0);
+  const taxPrice = 0;
 
-  const totalPrice = (itemsPrice + shippingPrice).toFixed(2);
+  const totalPrice = itemsPrice;
 
   return {
     itemsPrice,
     shippingPrice,
-    taxPrice,
+    // taxPrice,
     totalPrice,
   };
 }
@@ -52,8 +52,7 @@ const createOrder = async (req, res) => {
       };
     });
 
-    const { itemsPrice, taxPrice, shippingPrice, totalPrice } =
-      calcPrices(dbOrderItems);
+    const { itemsPrice, shippingPrice, totalPrice } = calcPrices(dbOrderItems);
 
     const order = new Order({
       orderItems: dbOrderItems,
@@ -61,7 +60,7 @@ const createOrder = async (req, res) => {
       shippingAddress,
       paymentMethod,
       itemsPrice,
-      taxPrice,
+      // taxPrice,
       shippingPrice,
       totalPrice,
     });

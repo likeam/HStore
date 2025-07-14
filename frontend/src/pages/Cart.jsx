@@ -20,7 +20,8 @@ const Cart = () => {
   };
 
   const checkoutHandler = () => {
-    navigate("/login?redrict=/shipping");
+    // navigate("/login?.redrict=/shipping");
+    navigate("/shipping");
   };
   return (
     <>
