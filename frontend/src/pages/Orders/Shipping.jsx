@@ -52,7 +52,7 @@ const Shipping = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-white mb-2">City</label>
+            <label className="block text-gray-100 mb-2">City</label>
             <input
               type="text"
               className="w-full p-2 border rounded"
